@@ -91,6 +91,15 @@ docker run --rm -p 8000:8000 fifa-player-risk-proxy
 
 The API is then available at `http://localhost:8000/docs`. The image runs as a non-root user and has a `/health` container check.
 
+The published public demo image uses the fictional CI fixture:
+
+```powershell
+docker pull pavankuarapati123/fifa-player-mlops:latest
+docker run --rm -p 8000:8000 pavankuarapati123/fifa-player-mlops:latest
+```
+
+Its predictions are only for the synthetic age-based proxy and are not trained or validated as real player churn.
+
 ## Lab 13 monitoring and automation
 
 `src/monitor.py` compares a current FIFA CSV with the reference snapshot using population stability index and high-risk prediction-rate shift. By default, it compares the snapshot to itself; pass a new compatible CSV batch to measure drift:
